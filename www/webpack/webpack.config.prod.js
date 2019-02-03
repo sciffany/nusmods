@@ -130,6 +130,7 @@ const productionConfig = merge([
   }),
   // Lint and Typescript type check are not enabled for production because CI has
   // explicit lint stages
+  // parts.setFreeVariable('process.env', parts.appVersion()),
 ]);
 
 module.exports = productionConfig;
