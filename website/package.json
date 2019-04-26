@@ -137,7 +137,7 @@
     "axios": "0.18.0",
     "bootstrap": "4.3.1",
     "browserslist-config-nusmods": "file:../packages/browserslist-config-nusmods",
-    "bowser": "1.9.4",
+    "bowser": "2.3.0",
     "classnames": "2.2.6",
     "core-js": "3.0.1",
     "date-fns": "2.0.0-alpha.27",
