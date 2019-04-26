@@ -1427,10 +1427,17 @@
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.0.tgz#1eb8c033e98cf4e1a4cedcaf8bcafe8cb7591e85"
   integrity sha512-eAtOAFZefEnfJiRFQBGw1eYqa5GTLCZ1y86N0XSI/D6EB+E8z6VPV/UL7Gi5UEclFqoQk+6NRqEDsfmDLXn8sg==
 
-"@types/jest@23.3.13":
-  version "23.3.13"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.13.tgz#c81484b6f4ca007bb09887ed15ecb3286d58f928"
-  integrity sha512-ePl4l+7dLLmCucIwgQHAgjiepY++qcI6nb8eAwGNkB6OxmTe3Z9rQU3rSpomqu42PCCnlThZbOoxsf+qylJsLA==
+"@types/jest-diff@*":
+  version "20.0.1"
+  resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
+  integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
+
+"@types/jest@24.0.11":
+  version "24.0.11"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.11.tgz#1f099bea332c228ea6505a88159bfa86a5858340"
+  integrity sha512-2kLuPC5FDnWIDvaJBzsGTBQaBbnDweznicvK7UGYzlIJP4RJR2a4A/ByLUXEyEgag6jz8eHdlWExGDtH3EYUXQ==
+  dependencies:
+    "@types/jest-diff" "*"
 
 "@types/js-combinatorics@0.5.31":
   version "0.5.31"
@@ -1489,10 +1496,10 @@
   resolved "https://registry.yarnpkg.com/@types/query-string/-/query-string-5.0.0.tgz#5dbebd24d0abeb555d0dd9704c33462d84a45e69"
   integrity sha512-5wxncaH2wdueIw8mYrRF+G+1sxwxK9AQYWK6V+EJvZ52YesFh2PnG7yRQ4zeThd2Ewy6xCCTUCG6tfRyUzqyIA==
 
-"@types/react-beautiful-dnd@10.0.1":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-beautiful-dnd/-/react-beautiful-dnd-10.0.1.tgz#8be4449a2f7843433542c97fcf18333383cc3e24"
-  integrity sha512-RA3mPgJFJP+zpkhVQL9T2SIkFDbtPx+R09hApQt2BvBUHYpiLaO3PygmnPgcDwCAultn3l+8jABbnVgOFtvZTg==
+"@types/react-beautiful-dnd@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-beautiful-dnd/-/react-beautiful-dnd-11.0.1.tgz#78adb1b8be5fd53eb977ba44862f2e1cbb8fb901"
+  integrity sha512-QrUml46B7qCTux+EsjR31S5k3MLHAV3biNcOC3625vtv/VAZlys3uEiOW3KUuc74iPw+b5fyDDugofp6apEQ0A==
   dependencies:
     "@types/react" "*"
 
