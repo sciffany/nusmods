@@ -21,6 +21,7 @@ export type ColoredLesson = Lesson & {
 };
 
 type Modifiable = {
+  isChosen?: boolean;
   isModifiable?: boolean;
   isAvailable?: boolean;
   isActive?: boolean;

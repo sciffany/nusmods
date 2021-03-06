@@ -7,6 +7,7 @@ import NUSModerator, { AcadWeekInfo } from 'nusmoderator';
 import { consumeWeeks, WeekRange } from 'types/modules';
 import { HoverLesson, ModifiableLesson } from 'types/timetables';
 import { OnHoverCell } from 'types/views';
+import { EyeOff, Eye } from 'react-feather';
 
 import {
   formatNumericWeeks,
@@ -91,6 +92,7 @@ const TimetableCell: React.FC<Props> = (props) => {
   const moduleName = showTitle ? `${lesson.moduleCode} ${lesson.title}` : lesson.moduleCode;
   const Cell = props.onClick ? 'button' : 'div';
   const isHoveredOver = isEqual(getHoverLesson(lesson), hoverLesson);
+  const [hiddenCell, setHiddenCell] = React.useState(false);
 
   const conditionalProps = onClick
     ? {
@@ -113,6 +115,7 @@ const TimetableCell: React.FC<Props> = (props) => {
       [styles.clickable]: !!onClick,
       [styles.available]: lesson.isAvailable,
       [styles.active]: lesson.isActive,
+      [styles.hiddenCell]: hiddenCell,
       // Local hover style for the timetable planner timetable,
       [styles.hover]: isHoveredOver,
       // Global hover style for module page timetable
@@ -120,7 +123,12 @@ const TimetableCell: React.FC<Props> = (props) => {
     },
   );
 
-  return (
+  return hiddenCell ? (
+    <Eye
+      className={classnames(styles.actionIcon)}
+      onMouseLeave={() => setHiddenCell(!hiddenCell)}
+    />
+  ) : (
     <Cell
       className={className}
       style={props.style}
@@ -131,7 +139,10 @@ const TimetableCell: React.FC<Props> = (props) => {
       {...conditionalProps}
     >
       <div className={styles.cellContainer}>
-        <div className={styles.moduleName}>{moduleName}</div>
+        <div className={styles.cellTitle}>
+          <div className={styles.moduleName}>{moduleName}</div>
+          <EyeOff className={styles.actionIcon} onMouseLeave={() => setHiddenCell(!hiddenCell)} />
+        </div>
         <div>
           {LESSON_TYPE_ABBREV[lesson.lessonType]} [{lesson.classNo}]
         </div>

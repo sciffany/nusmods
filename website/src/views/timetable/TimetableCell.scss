@@ -109,3 +109,17 @@ $cell-border-radius: 6px;
     opacity: 0.6;
   }
 }
+
+.actionIcon {
+  composes: svg-small from global;
+  visibility: visible;
+}
+
+.cellTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hiddenCell {
+  visibility: hidden;
+}

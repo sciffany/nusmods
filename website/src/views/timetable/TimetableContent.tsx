@@ -75,6 +75,7 @@ type Props = OwnProps & {
   timetableOrientation: TimetableOrientation;
   showTitle: boolean;
   hiddenInTimetable: ModuleCode[];
+  hiddenLesson: Lesson[];
 
   // Actions
   addModule: (semester: Semester, moduleCode: ModuleCode) => void;
@@ -83,6 +84,7 @@ type Props = OwnProps & {
   changeLesson: (semester: Semester, lesson: Lesson) => void;
   cancelModifyLesson: () => void;
   undo: () => void;
+  hideLesson: (lesson: Lesson) => void;
 };
 
 type State = {
@@ -159,6 +161,10 @@ class TimetableContent extends React.Component<Props, State> {
     this.props.hiddenInTimetable.includes(moduleCode);
 
   modifyCell = (lesson: ModifiableLesson, position: ClientRect) => {
+    if (lesson.isChosen) {
+      this.props.hideLesson(lesson);
+    }
+
     if (lesson.isAvailable) {
       this.props.changeLesson(this.props.semester, lesson);
 
@@ -208,6 +214,10 @@ class TimetableContent extends React.Component<Props, State> {
     colorIndex: this.props.colors[module.moduleCode],
     hiddenInTimetable: this.isHiddenInTimetable(module.moduleCode),
   });
+
+  hideLesson = (lesson: Lesson) => {
+    this.props.hideLesson(lesson);
+  };
 
   renderModuleTable = (
     modules: Module[],
@@ -295,7 +305,11 @@ class TimetableContent extends React.Component<Props, State> {
       const module = modules[moduleCode];
       const moduleTimetable = getModuleTimetable(module, semester);
       lessonsForLessonType(moduleTimetable, activeLesson.lessonType).forEach((lesson) => {
-        const modifiableLesson: Lesson & { isActive?: boolean; isAvailable?: boolean } = {
+        const modifiableLesson: Lesson & {
+          isActive?: boolean;
+          isAvailable?: boolean;
+          isChosen?: boolean;
+        } = {
           ...lesson,
           // Inject module code in
           moduleCode,
